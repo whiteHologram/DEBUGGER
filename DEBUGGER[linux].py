@@ -1,4 +1,4 @@
-import turtle,random,time,winsound
+import turtle,random,time,os
 
 #for create player's rock for crash bug
 def rock(color,x,y,ply):
@@ -21,7 +21,7 @@ def random_bug(size,dot):
     dot.shape("turtle")
     dot.penup()
     dot.ht()
-    winsound.PlaySound("soundBug.wav",winsound.SND_ASYNC)
+    os.system("aplay soundBug.wav&")
     dot.setpos(x,y)
     dot.st()
     #for control distance, hide bug and record score
@@ -30,7 +30,7 @@ def random_bug(size,dot):
             dot.ht()
             global xp1
             xp1 += 1
-            winsound.PlaySound("soundY.wav",winsound.SND_ASYNC)
+            os.system("aplay soundY.wav&")
             scorboard()
             break
         
@@ -38,7 +38,7 @@ def random_bug(size,dot):
             dot.ht()
             global xp2
             xp2 += 1
-            winsound.PlaySound("soundC.wav",winsound.SND_ASYNC)
+            os.system("aplay soundC.wav&")
             scorboard()
             break
         else:

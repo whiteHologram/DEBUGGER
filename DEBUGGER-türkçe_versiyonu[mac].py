@@ -1,4 +1,4 @@
-import turtle,random,time,winsound
+import turtle,random,time,os
 
 #for create player's rock for crash bug
 def rock(color,x,y,ply):
@@ -21,7 +21,7 @@ def random_bug(size,dot):
     dot.shape("turtle")
     dot.penup()
     dot.ht()
-    winsound.PlaySound("soundBug.wav",winsound.SND_ASYNC)
+    os.system("afplay soundBug.wav&")
     dot.setpos(x,y)
     dot.st()
     #for control distance, hide bug and record score
@@ -30,7 +30,7 @@ def random_bug(size,dot):
             dot.ht()
             global xp1
             xp1 += 1
-            winsound.PlaySound("soundY.wav",winsound.SND_ASYNC)
+            os.system("afplay soundY.wav&")
             scorboard()
             break
         
@@ -38,7 +38,7 @@ def random_bug(size,dot):
             dot.ht()
             global xp2
             xp2 += 1
-            winsound.PlaySound("soundC.wav",winsound.SND_ASYNC)
+            os.system("afplay soundC.wav&")
             scorboard()
             break
         else:
@@ -203,13 +203,13 @@ canvas=turtle.Screen()
 #login
 canvas.screensize(4000,800,"white")
 can.ht()
-can.write("play fullscreen!", move = False, align ="center" , font = ("Arial",30,"normal"))
+can.write("tam ekran oynayın!", move = False, align ="center" , font = ("Arial",30,"normal"))
 time.sleep(2)
 can.clear()
-can.write("\t         control keys:\n A-S-W-D(for yellow) and arrow keys(for cyan)", move = False, align ="center" , font = ("Arial",20,"normal"))
+can.write("\tkontrol tuşları:\n A-S-W-D(sarı icin) yon tusları(mavi icin)", move = False, align ="center" , font = ("Arial",20,"normal"))
 time.sleep(4)
 can.clear()
-can.write("\tcrash the bugs and gain xp, \nthe player who reachs 15 xp first, gonna win! ", move = False, align ="center" , font = ("Arial",20,"normal"))
+can.write("bocekleri ezin ve puan kazanın, \n15 puana ilk ulasan kazanır! ", move = False, align ="center" , font = ("Arial",20,"normal"))
 time.sleep(4)
 can.clear()
 can.write("3!", move = False, align ="center" , font = ("Arial",70,"normal"))
@@ -254,7 +254,7 @@ scorboardtab(tab)
 scor.penup()
 scor.goto(0,0)
 scor.pendown()
-scor.write("YELLOW vs CYAN", move = False, align ="center" , font = ("Arial",20,"normal"))
+scor.write("SARI vs MAVI", move = False, align ="center" , font = ("Arial",20,"normal"))
 scor.ht()
 
 #for inputs from key
@@ -279,18 +279,18 @@ while(1):
     if xp1==15: 
         canvas.screensize(4000,800,"white")
         can.goto(0,-70)
-        can.clear()
         can.color("green")
-        can.write("CYAN WIN!", move = False, align ="center" , font = ("Arial",120,"normal"))
-        time.sleep(3)        
+        can.write("MAVI KAZANDI!", move = False, align ="center" , font = ("Arial",100,"normal"))
+        time.sleep(3)
+        can.clear()
         exit(1)
     if xp2==15:
         canvas.screensize(4000,800,"white")
         can.goto(0,-70)
-        can.clear()
         can.color("green")
-        can.write("YELLOW WIN!", move = False, align ="center" , font = ("Arial",120,"normal"))
+        can.write("SARI KAZANDI!", move = False, align ="center" , font = ("Arial",100,"normal"))
         time.sleep(3)
+        can.clear()
         exit(1)
 
 
